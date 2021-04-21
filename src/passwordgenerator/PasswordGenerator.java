@@ -25,14 +25,14 @@ public class PasswordGenerator {
         System.out.print("Press Enter to begin....");
         sc.nextLine();
         
-        System.out.println("Let me know how long must your password be: \r\n"
-                                        + "----->");
+        System.out.print("Let me know how long must your password be: \r\n"
+                                        + "-----> ");
         
         int length = -1;
         while (length > 20 || length < 4) {
            while(!sc.hasNextInt())
            {
-               System.out.println("The Length must be an integer between 4 and 20");
+               System.out.print("The Length must be an integer between 4 and 20");
                sc.next() ;
            }
            length = sc.nextInt();
