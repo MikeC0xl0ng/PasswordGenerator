@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class PasswordGenerator {
     
-    public static String generatePassword(){
+    public static String generatePassword(int length){
         String password = "";
         int i;
-        for(i = 0; i < 10; i++)
+        for(i = 0; i < length; i++)
             password = password + generateRandomChar();
         return password;
     }
@@ -25,12 +25,23 @@ public class PasswordGenerator {
         System.out.print("Press Enter to begin....");
         sc.nextLine();
         
-        int length = 10;
+        System.out.println("Let me know how long must your password be: \r\n"
+                                        + "----->");
+        
+        int length = -1;
+        while (length > 20 || length < 4) {
+           while(!sc.hasNextInt())
+           {
+               System.out.println("The Length must be an integer between 4 and 20");
+               sc.next() ;
+           }
+           length = sc.nextInt();
+        }
         System.out.println("Generating Password...");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException ex) {}
-        String generatedPassword = generatePassword();
+        String generatedPassword = generatePassword(length);
         System.out.println("Your new password is: " + generatedPassword);
         
         
