@@ -1,6 +1,7 @@
 package passwordgenerator;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class PasswordGenerator {
     
@@ -19,12 +20,18 @@ public class PasswordGenerator {
     }
     public static void main(String[] args) {
 
+        System.out.println("HEY! I'm a random password generator, do you want to start?");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Press Enter to begin....");
+        sc.nextLine();
+        
         int length = 10;
         System.out.println("Generating Password...");
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException ex) {}
         String generatedPassword = generatePassword();
+        System.out.println("Your new password is: " + generatedPassword);
         
         
     }
