@@ -1,21 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package passwordgenerator;
 
-/**
- *
- * @author user
- */
-public class PasswordGenerator {
+import java.util.Random;
 
-    /**
-     * @param args the command line arguments
-     */
+public class PasswordGenerator {
+    
+    public static String generatePassword(){
+        String password = "";
+        int i;
+        for(i = 0; i < 10; i++)
+            password = password + generateRandomChar();
+        return password;
+    }
+
+    public static char generateRandomChar(){
+        Random rand = new Random();
+        int randomCharASCII = rand.nextInt(126-33)+33;
+        return (char)randomCharASCII;
+    }
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        int length = 10;
+        System.out.println("Generating Password...");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {}
+        String generatedPassword = generatePassword();
+        
+        
     }
     
 }
