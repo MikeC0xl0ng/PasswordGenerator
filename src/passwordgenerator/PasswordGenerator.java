@@ -18,6 +18,7 @@ public class PasswordGenerator {
         int randomCharASCII = rand.nextInt(126-33)+33;
         return (char)randomCharASCII;
     }
+    
     public static void main(String[] args) {
 
         System.out.println("HEY! I'm a random password generator, do you want to start?");
@@ -25,17 +26,16 @@ public class PasswordGenerator {
         System.out.print("Press Enter to begin....");
         sc.nextLine();
         
-        System.out.print("Let me know how long must your password be: \r\n"
-                                        + "-----> ");
+        System.out.print("Let me know how long must your password be (between 4 and 20): \r\n"
+                                + "-----> ");
         
         int length = -1;
         while (length > 20 || length < 4) {
-           while(!sc.hasNextInt())
-           {
-               System.out.print("The Length must be an integer between 4 and 20");
+           while(!sc.hasNextInt()){
                sc.next() ;
            }
            length = sc.nextInt();
+           
         }
         System.out.println("Generating Password...");
         try {
